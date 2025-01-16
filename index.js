@@ -89,37 +89,66 @@ function CemberinAlani(/* kodlar buraya */) {
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
-let ucetambolunenler,
+let ucetambolunenler=[],
   enkucuk,
   enbuyuk,
   ucebolunenlerintoplami,
   besyuzdenkucuksayilar,
   siralisayilar,
-  tekraredensayilar;
+  tekraredensayilar=[];
 
 // 3a çözümü
-
-/* kodlar buraya */
+enkucuk = sayilar[0];
+enbuyuk = sayilar[0];
+for (let i=1; i < sayilar.length; i++){
+  if (sayilar[i] < enkucuk){
+    enkucuk = sayilar[i];
+  }
+  if (sayilar[i] > enbuyuk){
+    enbuyuk = sayilar[i];
+  }
+}
+console.log(enkucuk);
+console.log(enbuyuk);
 
 // 3b çözümü:
 
-/* kodlar buraya */
+sayilar.forEach(sayi=> {
+  if (sayi % 3 === 0){
+    ucetambolunenler.push(sayi);
+  }
+})
+console.log(ucetambolunenler);
 
 // 3c çözümü:
 
-/* kodlar buraya */
+ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, sayi) => toplam + sayi, 0);
+console.log(ucebolunenlerintoplami);
 
 // 3d çözümü
 
-/* kodlar buraya */
+besyuzdenkucuksayilar = sayilar.filter(sayi => sayi < 500);
+console.log(besyuzdenkucuksayilar);
 
 // 3e çözümü
 
-/* kodlar buraya */
+siralisayilar = besyuzdenkucuksayilar.sort((a, b) => a - b);
+console.log(siralisayilar);
 
 // 3f çözümü
 
-/* kodlar buraya */
+sayilar.forEach(sayi => {
+  let tekrarSayisi = 0;
+  for (let i = 0; i < sayilar.length; i++){
+    if (sayilar[i] === sayi){
+      tekrarSayisi++;
+    }
+  }
+  if (tekrarSayisi > 1){
+    tekraredensayilar.push(`${sayi} sayısı ${tekrarSayisi} kere tekrar edilmiştir`);
+  }
+});
+console.log(tekraredensayilar);
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
